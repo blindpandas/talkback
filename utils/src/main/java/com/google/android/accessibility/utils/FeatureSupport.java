@@ -261,8 +261,8 @@ public final class FeatureSupport {
    * @return {@code true} if the device supports multi-finger gesture
    */
   public static boolean isMultiFingerGestureSupported() {
-    return BuildVersionUtils.isAtLeastR()
-        && AccessibilityServiceInfo.flagToString(FLAG_REQUEST_2_FINGER_PASSTHROUGH) != null;
+    return BuildVersionUtils.isAtLeastR();
+        // && AccessibilityServiceInfo.flagToString(FLAG_REQUEST_2_FINGER_PASSTHROUGH) != null;
   }
 
   /**
