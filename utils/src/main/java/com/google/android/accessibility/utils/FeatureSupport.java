@@ -262,7 +262,7 @@ public final class FeatureSupport {
    */
   public static boolean isMultiFingerGestureSupported() {
     return BuildVersionUtils.isAtLeastR();
-        // && AccessibilityServiceInfo.flagToString(FLAG_REQUEST_2_FINGER_PASSTHROUGH) != null;
+        && AccessibilityServiceInfo.flagToString(FLAG_REQUEST_2_FINGER_PASSTHROUGH) != null;
   }
 
   /**
