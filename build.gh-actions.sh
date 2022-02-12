@@ -104,9 +104,10 @@ if [[ $BUILD_EXIT_CODE -eq 0 ]]; then
   log
 fi
 
-RELEASE_APKS_DIR=release_apks
-mkdir ./${RELEASE_APKS_DIR}
-mv ./build/outputs/apk/phone/release/talkback-phone-release-unsigned.apk ./${RELEASE_APKS_DIR}/TalkBack-phone.apk
-mv ./build/outputs/apk/wear/release/talkback-wear-release-unsigned.apk ./${RELEASE_APKS_DIR}/TalkBack-wear.apk
+mkdir ./release_apks
+mv ./build/outputs/apk/phone/release/talkback-phone-release-unsigned.apk ./release_apks/TalkBack-phone.apk
+mv ./build/outputs/apk/wear/release/talkback-wear-release-unsigned.apk ./release_apks/TalkBack-wear.apk
+echo "Moved two apks"
+ls ./release_apks
 
 exit $BUILD_EXIT_CODE   ### This should be the last line in this file
