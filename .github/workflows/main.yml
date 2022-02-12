@@ -24,14 +24,10 @@ jobs:
       - uses: actions/upload-artifact@master
         with:
           name: release.apk
-          path: |
-            ${{ steps.sign_app.output.signedReleaseFile0 }}
-            ${{ steps.sign_app.output.signedReleaseFile1 }}
+          path: ./release_apks/*-signed.apk
       - uses: "marvinpinto/action-automatic-releases@latest"
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           automatic_release_tag: "latest"
           prerelease: true
-          files: |
-            ${{ steps.sign_app.output.signedReleaseFile0 }}
-            ${{ steps.sign_app.output.signedReleaseFile1 }}
+          files: ./release_apks/*-signed.apk
