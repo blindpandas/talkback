@@ -16,7 +16,7 @@ jobs:
         # ID used to access action output
         id: sign_app
         with:
-          releaseDirectory: ./build/outputs/apk/phone/release
+          releaseDirectory: ./release_apks
           signingKeyBase64: ${{ secrets.ANDROID_KEY }}
           alias: ${{ secrets.ANDROID_KEY_ALIAS }}
           keyStorePassword: ${{ secrets.ANDROID_KEY_PASSWORD }}
@@ -24,11 +24,12 @@ jobs:
       - uses: actions/upload-artifact@master
         with:
           name: release.apk
-          path: ${{steps.sign_app.outputs.signedReleaseFile}}
+          path: ./release_apks
       - uses: "marvinpinto/action-automatic-releases@latest"
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           automatic_release_tag: "latest"
           prerelease: true
           files: |
-            ${{steps.sign_app.outputs.signedReleaseFile}}
+            ${{ steps.sign_app.signedReleaseFile0 }}
+            ${{ steps.sign_app.signedReleaseFile1 }}
